@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane style="-fx-background-color: #F7F7F7;" stylesheets="@../styles/light.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.virsa.controller.SignupController">
+    <VBox alignment="TOP_CENTER" maxWidth="500.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);" StackPane.alignment="CENTER">
+        <StackPane.margin>
+            <Insets top="50.0" bottom="50.0" />
+        </StackPane.margin>
+
+        <Label fx:id="titleLabel" text="Create your profile" style="-fx-font-size: 24px; -fx-font-weight: 900; -fx-font-family: 'Arial Black'; -fx-text-fill: #4B4B4B;" />
+
+        <ProgressBar fx:id="progressBar" progress="0.33" maxWidth="Infinity" style="-fx-accent: #58CC02;" />
+
+        <!-- THE WIZARD STACK -->
+        <StackPane VBox.vgrow="ALWAYS">
+
+            <!-- STEP 1: Personal Data -->
+            <VBox fx:id="step1Pane" spacing="15.0">
+                <VBox spacing="5.0">
+                    <CheckBox fx:id="contributorCheckBox" text="Apply for Contributor Access?" style="-fx-font-weight: bold; -fx-text-fill: #1CB0F6; -fx-font-size: 14px;" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Email" style="-fx-font-weight: bold; -fx-text-fill: #AFBFC9;" />
+                    <TextField fx:id="emailField" promptText="you@example.com" style="-fx-background-color: #F7F7F7; -fx-background-radius: 10; -fx-padding: 12;" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Full Name" style="-fx-font-weight: bold; -fx-text-fill: #AFBFC9;" />
+                    <TextField fx:id="nameField" style="-fx-background-color: #F7F7F7; -fx-background-radius: 10; -fx-padding: 12;" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Password" style="-fx-font-weight: bold; -fx-text-fill: #AFBFC9;" />
+                    <PasswordField fx:id="passField" style="-fx-background-color: #F7F7F7; -fx-background-radius: 10; -fx-padding: 12;" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Retype Password" style="-fx-font-weight: bold; -fx-text-fill: #AFBFC9;" />
+                    <PasswordField fx:id="confirmPassField" style="-fx-background-color: #F7F7F7; -fx-background-radius: 10; -fx-padding: 12;" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Date of Birth" style="-fx-font-weight: bold; -fx-text-fill: #AFBFC9;" />
+                    <DatePicker fx:id="dobPicker" maxWidth="Infinity" style="-fx-background-color: #F7F7F7; -fx-background-radius: 10;" />
+                </VBox>
+            </VBox>
+
+            <!-- STEP 2: Language Preference (Hidden by default) -->
+            <VBox fx:id="step2Pane" spacing="15.0" visible="false">
+                <Label text="I want to learn..." style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4B4B4B;" />
+                <ComboBox fx:id="languageComboBox" maxWidth="Infinity" promptText="Select a Language" style="-fx-background-color: #F7F7F7; -fx-padding: 10; -fx-background-radius: 10; -fx-font-size: 16px;" />
+            </VBox>
+
+            <!-- STEP 3: Reason for Learning (Hidden by default) -->
+            <VBox fx:id="step3Pane" spacing="15.0" visible="false">
+                <Label text="Why are you learning?" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4B4B4B;" />
+                <!-- Using a ToggleGroup so only one reason can be selected -->
+                <VBox spacing="10.0">
+                    <RadioButton fx:id="reasonFamily" text="Connect with family/heritage" style="-fx-font-size: 14px;" />
+                    <RadioButton fx:id="reasonTravel" text="Travel to the region" style="-fx-font-size: 14px;" />
+                    <RadioButton fx:id="reasonSchool" text="School or Work" style="-fx-font-size: 14px;" />
+                    <RadioButton fx:id="reasonBrain" text="Brain training / Just for fun" style="-fx-font-size: 14px;" />
+                </VBox>
+            </VBox>
+
+        </StackPane>
+
+        <Label fx:id="errorLabel" textFill="#FF4B4B" style="-fx-font-weight: bold;" />
+
+        <!-- Navigation Buttons -->
+        <HBox spacing="15.0" alignment="CENTER">
+            <Button fx:id="btnBack" onAction="#handleBack" text="BACK" visible="false" style="-fx-background-color: transparent; -fx-border-color: #AFBFC9; -fx-border-radius: 15; -fx-text-fill: #AFBFC9; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 12 30; -fx-cursor: hand;" />
+            <Button fx:id="btnNext" onAction="#handleNext" text="NEXT STEP" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: #58CC02; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 12 30; -fx-background-radius: 15; -fx-cursor: hand;" />
+        </HBox>
+
+        <Button onAction="#handleCancel" text="Cancel Registration" style="-fx-background-color: transparent; -fx-text-fill: #AFBFC9; -fx-cursor: hand;" />
+    </VBox>
+</StackPane>

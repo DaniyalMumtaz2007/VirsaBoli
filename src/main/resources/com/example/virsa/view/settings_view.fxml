@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.virsa.controller.SettingsController">
+    <VBox spacing="35.0">
+        <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+        </padding>
+
+        <!-- Notice how we use -text-primary here instead of #4B4B4B! -->
+        <Label text="Settings" style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-font-family: 'Arial Black'; -fx-text-fill: -text-primary;" />
+
+        <!-- Appearance Card using -card-bg -->
+        <VBox spacing="20.0" style="-fx-background-color: -card-bg; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, -shadow-color, 10, 0, 0, 5);">
+            <Label text="Appearance" style="-fx-font-size: 18px; -fx-font-weight: 900; -fx-text-fill: -text-secondary;" />
+
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Dark Mode" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: -text-primary;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <ToggleButton fx:id="themeToggle" onAction="#handleThemeToggle" text="OFF" style="-fx-background-color: #E5E5E5; -fx-text-fill: #777777; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 8 20 8 20; -fx-cursor: hand;" />
+            </HBox>
+        </VBox>
+
+        <!-- Account Card using -card-bg -->
+        <VBox spacing="20.0" style="-fx-background-color: -card-bg; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, -shadow-color, 10, 0, 0, 5);">
+            <Label text="Account" style="-fx-font-size: 18px; -fx-font-weight: 900; -fx-text-fill: -text-secondary;" />
+
+            <Button text="Edit Profile" maxWidth="Infinity" style="-fx-background-color: -primary-blue; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 12; -fx-background-radius: 12; -fx-cursor: hand;" />
+
+            <!-- ADDED onAction for Sign Out -->
+            <Button onAction="#handleSignOut" text="Sign Out" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-border-color: #FF4B4B; -fx-border-width: 2; -fx-text-fill: #FF4B4B; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10; -fx-background-radius: 12; -fx-cursor: hand;" />
+        </VBox>
+    </VBox>
+</ScrollPane>

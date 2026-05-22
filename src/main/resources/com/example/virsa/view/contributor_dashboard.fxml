@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: -bg-color;" stylesheets="@../styles/light.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.virsa.controller.ContributorDashboardController">
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="20.0" style="-fx-padding: 15 40 15 40; -fx-border-color: -border-color; -fx-border-width: 0 0 2 0;">
+            <Label text="Contributor Dashboard" style="-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: -text-primary;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button onAction="#handleLogout" text="Log Out" style="-fx-background-color: #FF4B4B; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 8 20; -fx-background-radius: 10; -fx-cursor: hand;" />
+        </HBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox fx:id="unitsContainer" alignment="TOP_CENTER" spacing="30.0">
+                <padding>
+                    <Insets bottom="50.0" top="30.0" left="20.0" right="20.0"/>
+                </padding>
+                <!-- Units and lesson paths are injected dynamically by the controller -->
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

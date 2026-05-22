@@ -1,0 +1,52 @@
+.root {
+    -primary-green: #58CC02;
+    -primary-blue: #1CB0F6;
+    -bg-color: #F7F7F7;
+    -sidebar-bg: #FFFFFF;
+    -card-bg: #FFFFFF;
+    -text-primary: #4B4B4B;
+    -text-secondary: #AFBFC9;
+    -border-color: #E5E5E5;
+    -shadow-color: rgba(0,0,0,0.1);
+}
+
+.content-area {
+    -fx-background-color: -bg-color;
+}
+
+.sidebar {
+    -fx-background-color: -sidebar-bg;
+    -fx-border-color: -border-color;
+    -fx-border-width: 0 2 0 0;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 20 12 20;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: -border-color;
+}
+
+.nav-button-active {
+    -fx-background-color: #DDF4FF;
+    -fx-text-fill: -primary-blue;
+    -fx-border-color: -primary-blue;
+    -fx-border-width: 2;
+}
+/* Fix for JavaFX ScrollPane inner backgrounds */
+.scroll-pane {
+    -fx-background: -bg-color;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}

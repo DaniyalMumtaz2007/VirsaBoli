@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane style="-fx-background-color: -bg-color;" stylesheets="@../styles/light.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.virsa.controller.LessonBuilderController">
+    <top>
+        <HBox style="-fx-padding: 20;">
+            <Button onAction="#handleBack" text="← Back to Dashboard" style="-fx-background-color: transparent; -fx-text-fill: -text-secondary; -fx-font-weight: bold; -fx-font-size: 16px; -fx-cursor: hand;" />
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+            <VBox alignment="CENTER" spacing="20.0" style="-fx-padding: 20 40 40 40;">
+
+                <Label text="Lesson Builder" style="-fx-font-size: 32px; -fx-font-weight: 900; -fx-text-fill: -text-primary;" />
+                <Label fx:id="questionCountLabel" text="Questions added: 0 (minimum 3)" style="-fx-font-size: 16px; -fx-text-fill: -text-secondary; -fx-font-weight: bold;" />
+
+                <VBox spacing="15.0" maxWidth="500">
+                    <!-- Language & Unit (locked after first question) -->
+                    <HBox spacing="15.0">
+                        <ComboBox fx:id="languageComboBox" promptText="Select Language" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-font-size: 16px; -fx-padding: 5; -fx-background-radius: 10;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Punjabi" />
+                                    <String fx:value="Sindhi" />
+                                    <String fx:value="Pashto" />
+                                    <String fx:value="Balochi" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <TextField fx:id="unitField" promptText="Unit (e.g. 1)" prefWidth="120" style="-fx-font-size: 16px; -fx-padding: 10; -fx-background-radius: 10;" />
+                    </HBox>
+
+                    <!-- Question Type -->
+                    <ComboBox fx:id="typeComboBox" promptText="Question Type" maxWidth="Infinity" style="-fx-font-size: 16px; -fx-padding: 5; -fx-background-radius: 10;" onAction="#handleTypeChange">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Translation" />
+                                <String fx:value="Audio" />
+                                <String fx:value="Paragraph" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    
+                    <Label fx:id="audioHintLabel" text="Selected File: None" style="-fx-font-style: italic; -fx-text-fill: #1CB0F6;" visible="false" managed="false"/>
+                    <Button fx:id="audioFileButton" text="Choose Audio File" onAction="#handleChooseAudio" style="-fx-background-color: #1CB0F6; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 10; -fx-background-radius: 10;" visible="false" managed="false"/>
+
+                    <!-- Prompt & Correct Answer -->
+                    <TextField fx:id="promptField" promptText="Prompt Word (e.g. Seb)" style="-fx-font-size: 16px; -fx-padding: 10; -fx-background-radius: 10;" />
+                    <TextField fx:id="correctField" promptText="Correct Translation (e.g. Apple)" style="-fx-font-size: 16px; -fx-padding: 10; -fx-background-radius: 10;" />
+                    <TextArea fx:id="correctArea" promptText="Correct Paragraph Answer" wrapText="true" prefHeight="100" style="-fx-font-size: 16px; -fx-padding: 10; -fx-background-radius: 10;" visible="false" managed="false" />
+
+                    <!-- Wrong Options -->
+                    <VBox fx:id="wrongOptionsContainer" spacing="15.0">
+                        <TextField fx:id="wrong1Field" promptText="Wrong Option 1 (e.g. Water)" style="-fx-font-size: 16px; -fx-padding: 10; -fx-background-radius: 10;" />
+                        <TextField fx:id="wrong2Field" promptText="Wrong Option 2 (e.g. Car)" style="-fx-font-size: 16px; -fx-padding: 10; -fx-background-radius: 10;" />
+                    </VBox>
+                    
+                    <Label fx:id="feedbackLabel" text="" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+
+                    <!-- Two Action Buttons -->
+                    <HBox spacing="15.0">
+                        <Button onAction="#handleAddQuestion" text="+ ADD QUESTION" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: #1CB0F6; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 15; -fx-background-radius: 15; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 5, 0, 0, 4);" />
+                        <Button fx:id="finishButton" onAction="#handleFinishLesson" text="FINISH LESSON" HBox.hgrow="ALWAYS" maxWidth="Infinity" disable="true" style="-fx-background-color: #E5E5E5; -fx-text-fill: #AFBFC9; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 15; -fx-background-radius: 15;" />
+                    </HBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

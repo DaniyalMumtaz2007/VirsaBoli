@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Circle?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.virsa.controller.ProfileController">
+    <VBox spacing="35.0">
+        <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+        </padding>
+
+        <!-- Header Profile Section -->
+        <HBox spacing="25.0" alignment="CENTER_LEFT" style="-fx-background-color: -card-bg; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, -shadow-color, 10, 0, 0, 5);">
+            <Circle radius="45.0" fill="#E5E5E5" stroke="#1CB0F6" strokeWidth="4.0" />
+            <VBox spacing="5.0" alignment="CENTER_LEFT">
+                <Label fx:id="userNameLabel" text="Loading..." style="-fx-font-size: 26px; -fx-font-weight: 900; -fx-font-family: 'Arial Black'; -fx-text-fill: -text-primary;" />
+                <Label fx:id="emailLabel" text="" style="-fx-font-size: 14px; -fx-text-fill: -text-secondary; -fx-font-weight: bold;" />
+                <Label text="Joined Just Now" style="-fx-font-size: 12px; -fx-text-fill: -text-secondary;" />
+            </VBox>
+        </HBox>
+
+        <Label text="Statistics" style="-fx-font-size: 22px; -fx-font-weight: 900; -fx-font-family: 'Arial Black'; -fx-text-fill: -text-primary;" />
+
+        <!-- Stats Cards -->
+        <GridPane hgap="20.0" vgap="20.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50.0" />
+                <ColumnConstraints percentWidth="50.0" />
+            </columnConstraints>
+
+            <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: -card-bg; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, -shadow-color, 10, 0, 0, 5);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label fx:id="streakLabel" text="0" style="-fx-font-size: 28px; -fx-font-weight: 900; -fx-text-fill: #FF9600;" />
+                <Label text="Day Streak" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: -text-secondary;" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: -card-bg; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, -shadow-color, 10, 0, 0, 5);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label fx:id="xpLabel" text="0" style="-fx-font-size: 28px; -fx-font-weight: 900; -fx-text-fill: #FFD900;" />
+                <Label text="Total XP" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: -text-secondary;" />
+            </VBox>
+        </GridPane>
+
+        <Label text="Daily Quests" style="-fx-font-size: 22px; -fx-font-weight: 900; -fx-font-family: 'Arial Black'; -fx-text-fill: -text-primary;" />
+
+        <!-- Daily Goal Card -->
+        <VBox spacing="15.0" style="-fx-background-color: -card-bg; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, -shadow-color, 10, 0, 0, 5);">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Earn 50 XP" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: -text-primary;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="20 / 50" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: -text-secondary;" />
+            </HBox>
+            <ProgressBar progress="0.4" maxWidth="Infinity" prefHeight="20.0" style="-fx-accent: #58CC02; -fx-control-inner-background: #E5E5E5; -fx-background-radius: 10;" />
+        </VBox>
+
+        <!-- Active Courses Section -->
+        <Label text="Active Courses" style="-fx-font-size: 22px; -fx-font-weight: 900; -fx-font-family: 'Arial Black'; -fx-text-fill: -text-primary;" />
+
+        <HBox fx:id="activeCoursesBox" spacing="15.0">
+            <!-- Courses are injected dynamically here by ProfileController -->
+        </HBox>
+
+    </VBox>
+</ScrollPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.virsa.controller.LessonsController">
+    <VBox fx:id="lessonsContainer" alignment="TOP_CENTER" spacing="30.0">
+        <padding>
+            <Insets bottom="50.0" top="30.0" left="20.0" right="20.0"/>
+        </padding>
+        <!-- Units and lesson paths are injected dynamically by LessonsController -->
+    </VBox>
+</ScrollPane>
